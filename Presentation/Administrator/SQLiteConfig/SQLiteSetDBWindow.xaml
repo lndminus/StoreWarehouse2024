@@ -1,0 +1,30 @@
+﻿<Window x:Class="Presentation.Administrator.SQLiteConfig.SQLiteSetDBWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.Administrator.SQLiteConfig"
+        mc:Ignorable="d"
+        Title="SQLiteSetDBWindow" Height="300" Width="300">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="Укажіть шлях до БД:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="DBName" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Width="100"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button Content="Підключитись"  Margin="5" Background="Aquamarine" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Accept_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

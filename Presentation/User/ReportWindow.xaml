@@ -1,0 +1,62 @@
+﻿<Window x:Class="Presentation.User.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.User"
+        mc:Ignorable="d"
+        Title="ReportWindow" Height="300" Width="300">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="Звіт:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Text="{Binding ReportType}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+            <!--<TextBox x:Name="ItemName" Text="{Binding Name}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Width="100"/>-->
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="Товар:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Text="{Binding ItemName}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <TextBlock Text="Кількість:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">    
+                <Run Text="{Binding ReportQuantity}" />
+                <Run Text=" " />
+                <Run Text="{Binding ItemUnit}" />
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <TextBlock Text="Загальна ціна:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Text="{Binding TotalPrice}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <TextBlock Text="Опис:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock Text="Опис звіту" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="150" Margin="5"/>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <TextBlock Text="Оформленно:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Text="{Binding UserName}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Button Content="Згенерувати звіт"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aquamarine" Margin="6" Click="GenerateReport_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

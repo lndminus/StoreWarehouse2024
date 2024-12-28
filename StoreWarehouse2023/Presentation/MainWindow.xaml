@@ -1,0 +1,70 @@
+﻿<Window x:Class="StoreWarehouse2023.Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StoreWarehouse2023.Presentation"
+        mc:Ignorable="d"
+        Title="StoreWarehouse2023" Height="500" Width="400">
+
+    <Grid Background="#474747">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Content="Кнопка 1" Margin="5" Background="Aquamarine" Click="ChangeWindow_Click"/>
+            <Button Content="Пошук" Margin="5" Background="DarkTurquoise"/>
+            <!--<TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>-->
+            
+            <TextBlock Text="{Binding Inputl}" Foreground="White"></TextBlock>
+            <TextBlock Text="{Binding Passw}" Foreground="White"></TextBlock>
+
+            <!--<TextBox x:Name="MyTextBox" TextChanged="TextBox_TextChanged" />-->
+            <ComboBox x:Name="MyComboBox" IsEditable="True" IsTextSearchEnabled="False" Width="100" Margin="5" TextBox.TextChanged="ComboBox_TextChanged" />
+
+
+
+            <!-- Добавьте кнопки или другие элементы управления по вашему выбору -->
+        </StackPanel>
+
+        <!-- Зона содержимого -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <!-- Ширина бокового меню -->
+                <ColumnDefinition Width="3*"/>
+                <!-- Остальное пространство для основного содержимого -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Боковое меню -->
+            <StackPanel Grid.Column="0" Background="#474747">
+                <Button Content="Пункт 1" Margin="5" Background="Cyan" Click="ChangeWindow_Click2"/>
+                <Button Content="Пункт 2" Margin="5" Background="DarkTurquoise"/>
+                <Button Content="Пункт 3" Margin="5" Background="LightSkyBlue"/>
+                <Menu Margin="6" Background="LightSkyBlue" HorizontalAlignment="Center">
+                    <MenuItem Header="Файл" MinWidth="100" >
+                        <MenuItem Header="Открыть" Background="LightSkyBlue" />
+                        <MenuItem Header="Сохранить"  />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+
+            <!-- Основное содержимое -->
+            <Grid Grid.Column="1" Background="White">
+                <!-- Размещение основного содержимого -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False" SelectionChanged="DataGrid_SelectionChanged">
+                        <!-- Определения столбцов DataGrid -->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Характеристика 1" Binding="{Binding Characteristic1}" />
+                            <DataGridTextColumn Header="Характеристика 2" Binding="{Binding Characteristic2}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
